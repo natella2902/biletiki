@@ -22,7 +22,6 @@ class RoutesController < ApplicationController
     end
   end
 
-
   def edit
   end
 
