@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Train number:</strong>
   <%= @train.number %>
 </p>
 
@@ -22,6 +22,21 @@
       Not indicated
   <% end %>
 </p>
+
+
+<% if @train.wagons.empty? %>
+    <p> Train is included any wagons</p>
+<% else %>
+    <p> <strong> Train is included following wagons: </strong> </p>
+    <ul>
+      <% @train.wagons.each do |wagon| %>
+          <li>type: <%= wagon.wagon_type %> </li>
+          <li>top: <%= wagon.top_place %> </li>
+          <li>bottom: <%= wagon.bottom_place %> </li>
+      <% end %>
+    </ul>
+<% end %>
+
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
