@@ -6,11 +6,20 @@
 </p>
 
 <p>
-  <strong>On Station</strong>
+  <strong>On Station:</strong>
   <% if @train.current_station.present?%>
     <%= @train.current_station.title %>
   <% else %>
     Not indicated
+  <% end %>
+</p>
+
+<p>
+  <strong>On Route:</strong>
+  <% if @train.route.present?%>
+      <%= @train.route.name %>
+  <% else %>
+      Not indicated
   <% end %>
 </p>
 
