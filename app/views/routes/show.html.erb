@@ -18,5 +18,19 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Stations on route:</strong>
+  <% if @route.railway_stations.empty?%>
+      Not indicated
+  <% else %>
+    <ul>
+      <% @route.railway_stations.each do |station|%>
+          <li><%= station.title %> </li>
+      <% end %>
+    </ul>
+<% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
