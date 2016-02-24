@@ -16,11 +16,6 @@
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
-    <div class="field">
-      <%= f.label :wagon, "Wagon" %>
-      <%= f.collection_select :wagon_id, Wagon.all, :id, :wagon_type %>
-    </div>
-
   <div class="actions">
     <%= f.submit "#{ @train.new_record? ? 'Create' : 'Edit'}" %>
   </div>
