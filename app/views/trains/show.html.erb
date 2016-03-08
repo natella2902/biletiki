@@ -1,9 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Train number:</strong>
   <%= @train.number %>
 </p>
+
+<p>
+  <strong>On Station:</strong>
+  <% if @train.current_station.present?%>
+    <%= @train.current_station.title %>
+  <% else %>
+    Not indicated
+  <% end %>
+</p>
+
+<p>
+  <strong>On Route:</strong>
+  <% if @train.route.present?%>
+      <%= @train.route.name %>
+  <% else %>
+      Not indicated
+  <% end %>
+</p>
+
+<% if @train.wagons.empty? %>
+    <p> Train is included any wagons</p>
+<% else %>
+    <p> <strong> Train is included following wagons: </strong> </p>
+    <ul>
+      <li> <strong>First Class: </strong> <%= @train.wagons.where(wagon_type: 'first_class').count %></li>
+      <li>Top place:<%= @train.wagons.where(wagon_type: 'first_class').sum(:top_place) %></li>
+      <li>Bottom place:<%= @train.wagons.where(wagon_type: 'first_class').sum(:bottom_place) %></li>
+
+      <li> <strong>Second Class:</strong><%= @train.wagons.where(wagon_type: 'second_class').count %></li>
+      <li>Top place: <%= @train.wagons.where(wagon_type: 'second_class').sum(:top_place) %></li>
+      <li>Bottom place: <%= @train.wagons.where(wagon_type: 'second_class').sum(:bottom_place) %></li>
+
+      <% @train.wagons.each do |wagon|  %>
+          <% wagon.wagon_type %>
+          <% wagon.top_place %>
+          <% wagon.bottom_place %>
+      <% end %>
+    </ul>
+<% end %>
+
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
