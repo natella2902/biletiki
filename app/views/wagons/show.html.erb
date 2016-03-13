@@ -1,33 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h1>Вагон № <%= @wagon.number %></h1>
 
 <p>
-  <strong>Wagon_id:</strong>
-  <%= @wagon.id %>
+  Поезд <%= @wagon.train.number %></h1>
 </p>
 
 <p>
-  <strong> Type wagon: </strong>
-  <%= @wagon.wagon_type%>
+  Верхние места <%= @wagon.top_place %></h1>
 </p>
 
 <p>
-  <strong>Train number:</strong>
-  <% if @wagon.train.present?%>
-      <%= @wagon.train.number %>
-  <% else %>
-      Not indicated
-  <% end %>
+  Нижние места <%= @wagon.bottom_place %></h1>
 </p>
 
 <p>
-  <strong> TopPlace in wagon: </strong>
-  <%= @wagon.top_place%>
+  Боковые верхние места <%= @wagon.side_top_place %></h1>
 </p>
 
 <p>
-  <strong> BottomPlace wagon: </strong>
-  <%= @wagon.bottom_place%>
+  Боковые нижние места <%= @wagon.side_bottom_place %></h1>
 </p>
 
-<%= link_to 'Edit', edit_wagon_path(@wagon) %> |
-<%= link_to 'Back', wagons_path %>
+<p>
+  Сидячие места <%= @wagon.seat_place %></h1>
+</p>
+
+<%= link_to "Назад", @wagon.train %>
+

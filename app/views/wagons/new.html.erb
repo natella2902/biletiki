@@ -1,5 +1,42 @@
-<h1>New Wagon</h1>
+<h1>Новый вагон</h1>
 
-<%= render 'form' %>
+<%= form_for [@train, @wagon] do |f| %>
 
-<%= link_to 'Back', wagons_path %>
+    <div class="field">
+      <strong><%= f.label :type, 'Wagon type:' %></strong>
+      <%=f.select :type, options_for_select([[' Сидячий вагон', WagonSecondClass], ['Плацкарт', WagonFirstClass],
+                           ['Купе', WagonCoupe], ['СВ', WagonPremium ]]) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :top_place %><br>
+      <%= f.number_field :top_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label :bottom_place %><br>
+      <%= f.number_field :bottom_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label :side_top_place %><br>
+      <%= f.number_field :side_top_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label :side_bottom_place %><br>
+      <%= f.number_field :side_bottom_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label :seat_place %><br>
+      <%= f.number_field :seat_place %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Cоздать"%>
+    </div>
+
+
+<% end %>
+

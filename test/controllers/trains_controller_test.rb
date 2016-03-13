@@ -12,7 +12,7 @@ class TrainsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :newd
     assert_response :success
   end
 
